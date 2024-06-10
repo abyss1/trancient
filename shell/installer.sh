@@ -14,13 +14,15 @@ HOME_DIR=$HOME
 BIN_DIR=$HOME_DIR/bin
 ETC_DIR=$HOME_DIR/etc
 ZSH_DIR=$HOME_DIR/.zsh
+CONFIG_DIR=$HOME_DIR/.config
 
 # Create directories if they do not exist
 [ ! -d $BIN_DIR ] && mkdir -p $BIN_DIR
 [ ! -d $ETC_DIR ] && mkdir -p $ETC_DIR
 [ ! -d $ZSH_DIR ] && mkdir -p $ZSH_DIR
+[ ! -d $CONFIG_DIR ] && mkdir -p $CONFIG_DIR
 
-echo "Created directories $BIN_DIR and $ETC_DIR"
+echo "Created directories $BIN_DIR, $ETC_DIR, and $ZSH_DIR"
 
 # Install tools & fonts
 if [ "$OS" = "mac" ] || [ "$OS" = "linux" ]; then
@@ -48,15 +50,9 @@ echo "Installed tools"
 
 echo "Created starship.zsh, functions.zsh, and aliases.zsh in $ZSH_DIR"
 
-# Source all .zsh files in $HOME/.zsh
-#if [[ -d $HOME/.zsh ]]; then
-  #for config_file in $HOME/.zsh/*.zsh; do
-    #if [[ -f $config_file ]]; then
-      #source $config_file
-    #fi
-  #done
-#fi
+# Download starship.toml from GitHub and place it in .config directory
+[ ! -f $CONFIG_DIR/starship.toml ] && curl -o $CONFIG_DIR/starship.toml https://raw.githubusercontent.com/abyss1/trancient/main/dotfiles/starship/starship.toml
+
+echo "Downloaded starship.toml to $CONFIG_DIR"
 
 source $HOME/.zshrc # this will do regardless of outcome of previous step
-
-

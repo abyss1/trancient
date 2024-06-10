@@ -35,8 +35,8 @@ if [ "$OS" = "mac" ] || [ "$OS" = "linux" ]; then
     fi
     echo "Installing tools with Homebrew, this will take a while !"
     brew tap homebrew/linux-fonts
-    brew install vault consul packer terraform sshpass starship ansible
-    brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install {} || true
+    brew install vault consul packer terraform sshpass starship ansible gcc
+#    brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install {} || true
 fi
 
 echo "Installed tools"
@@ -49,10 +49,14 @@ echo "Installed tools"
 echo "Created starship.zsh, functions.zsh, and aliases.zsh in $ZSH_DIR"
 
 # Source all .zsh files in $HOME/.zsh
-if [[ -d $HOME/.zsh ]]; then
-  for config_file in $HOME/.zsh/*.zsh; do
-    if [[ -f $config_file ]]; then
-      source $config_file
-    fi
-  done
-fi
+#if [[ -d $HOME/.zsh ]]; then
+  #for config_file in $HOME/.zsh/*.zsh; do
+    #if [[ -f $config_file ]]; then
+      #source $config_file
+    #fi
+  #done
+#fi
+
+source $HOME/.zshrc # this will do regardless of outcome of previous step
+
+

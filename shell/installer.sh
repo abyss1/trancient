@@ -42,7 +42,9 @@ if [ "$OS" = "mac" ] || [ "$OS" = "linux" ]; then
     fi
     echo "Installing tools with Homebrew, this will take a while !"
     brew tap homebrew/linux-fonts
-    brew install vault consul packer terraform sshpass starship ansible gcc
+    brew tap hashicorp/tap
+    brew tap puppetlabs/puppet
+    brew install hashicorp/tap/vault hashicorp/tap/consul hashicorp/tap/packer hashicorp/tap/terraform sshpass starship ansible gcc hashicorp/tap/boundary
 #    brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install {} || true
 fi
 

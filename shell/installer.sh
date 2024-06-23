@@ -1,4 +1,5 @@
-#!/bin/bash
+# #!/bin/bash
+#! /usr/bin/zsh
 
 # Determine OS
 OS="unknown"

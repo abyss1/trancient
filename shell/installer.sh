@@ -35,7 +35,7 @@ if [ "$OS" = "mac" ] || [ "$OS" = "linux" ]; then
     if test ! $(which brew); then
         echo "Installing Homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /$HOME/.profile
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' > $ZSH_DIR/brew.zsh
         source $HOME/.zshrc
